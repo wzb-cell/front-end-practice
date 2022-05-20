@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="parent_block">
+        <div class="child_block">child_block</div>
+     </div>
+     <div class="parent_flex">
+        <div class="child_flex">child_flex1</div>
+        <div class="child_flex">child_flex2</div>
+        <div class="child_flex">child_flex3</div>
+     </div>
+     <div class="parent_table">
+        <div class="child_table">child_table1</div>
+        <div class="child_table">child_table2</div>
+        <div class="child_table">child_table2</div>
+     </div>
+     <div class="parent_in">
+        <span class="child_in">child_in</span>
+     </div>
+</body>
+<style>
+    .parent_block {
+        text-align: center;
+        width: 300px;
+        height: 300px;
+        border: 1px solid red;
+        position: relative;
+    }
+    .child_block {
+        position: absolute;
+        inset: 0;
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        margin-inline: auto;
+        margin-block: auto;
+        /* margin: auto;  */
+        border: 1px solid blue;
+    }
+    .parent_flex {
+        width:600px;
+        height: 200px;
+        text-align: center;
+        border:1px solid red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .child_flex {
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        border: 1px solid blue;
+    }
+    .parent_table {
+        width: 600px;
+        height: 200px;
+        text-align: center;
+        border: 1px solid red;
+        display: table;
+    }
+    .child_table {
+        /* border: 1px solid blue; */
+        display: table-cell;
+        vertical-align: middle;
+
+    }
+    .parent_in {
+        text-align: center;
+    }
+    .child_in {
+        width: 100px;
+        /* margin: auto;  */
+        border: 1px solid blue;
+    }
+
+</style>
+</html>

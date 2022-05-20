@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+  function test(){
+    var timer = new Timer();
+    setTimeout(() => {
+      console.log('s1: ',timer.s1);
+    }, 3100);
+    setTimeout(() => {
+      console.log('s2: ',timer.s2);
+    }, 3100);
+    var name = "window-name";
+    var obj = {
+      name:"obj-name",
+      a:function(){
+          console.log(this.name);
+      },
+      b:{
+          name:"b-name",
+          a:function(){
+              console.log(this.name);
+          }
+      }
+  }
+    // obj.a();//obj-name
+    // obj.b.a();//b-name
+    var ax = obj.b.a;
+    let age = 29;
+    console.log(this.age)
+    ax.call(obj.a)
+    console.log(name)
+  }
+  function Timer() {
+    console.log(this)
+    this.s1 = 0;
+    this.s2 = 0;
+    setInterval(() => {
+      this.s1++;
+    }, 1000);
+    setInterval(function(){
+      this.s2++;
+    }, 1000);
+  }
+</script>
+<script>
+function testAwait (x) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(x);
+    }, 2000);
+  });
+}
+ 
+async function helloAsync() {
+  var x = await testAwait ("hello world");
+}
+helloAsync ();
+
+</script>
+<body>
+    <form>FORM
+        <div>DIV
+          <p>P</p>
+          <button type="button" id="btn" onclick="test()"  >测试</button>
+          <button id="btn22" οnclick="test()">测试22</button>
+        </div>
+    </form>
+</body>
+</html>

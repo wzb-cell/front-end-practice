@@ -1,0 +1,47 @@
+<!--
+ * @Author: Man 2236879596@qq.com
+ * @Date: 2022-05-08 10:49:42
+ * @LastEditors: Man 2236879596@qq.com
+ * @LastEditTime: 2022-05-19 21:07:36
+ * @FilePath: \vscode\sizeTest01.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function _comma(number) {
+            // 补全代码
+            let negative = '';
+            if (number < 0) {
+                negative = '-';
+                number = Math.abs(number);
+            }
+            let array = parseInt(number).toString().split("").reverse();
+            let sign = 0;
+            let comArray1 = [];
+            for (let i = 0; i < array.length; i++) {
+                if (sign === 3) {
+                    comArray1.push(",");
+                    sign = 0;
+                }
+                comArray1.push(array[i]);
+                sign++;
+            }
+            return negative + comArray1.reverse().join('');      
+        }
+        console.log(_comma(1234567))
+    </script>
+</head>
+
+<body>
+    <div style="font-size: 15px">
+        你好，css 世界
+        <p style="font-size: 2em;width: 2em;background-color: antiquewhite;">em是相对长度单位</p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 引入vue文件 -->
+    <!-- <script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <div id = "box">
+        <new-input v-bind:name.sync="name"></new-input>
+        <br/>{{name}}<br/>
+        <input type="text" v-model="name"/>
+        
+    </div>
+    <script>
+        Vue.component("new-input",{
+            template:`
+            <label>你的名字:<input type="text" @keyup="changeName()" v-model="newName"/></label>
+            `,
+            props:["name"],
+            data() {
+                return {
+                    newName: this.name
+                }
+            },
+            watch: {
+                name(v) {
+                    this.newName = v
+                }
+            },
+            methods: {
+                changeName() {
+                    this.$emit("update:name", this.newName)
+                }
+            }
+        })
+        new Vue({
+            el:"#box",
+            data: {
+                name: "nick"
+            }
+        })
+    </script>
+</body>
+</html>
