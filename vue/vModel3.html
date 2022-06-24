@@ -1,0 +1,68 @@
+<!--
+ * @PackageName: 
+ * @Description: v-model语法的实现
+ * @Author: Man
+ * @Date: 2022-05-25 21:52:10
+ * @LastModifiedBy: git config user.name
+ * @LastEditTime: 2022-05-25 22:35:18
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="box">
+        <input v-model="sth"></input>
+        <input :value="sth" @input="sth = $event.target.value"></input>
+        <P>{{name}}</P>
+        <new-input :sth.sync="name"></new-input>
+    </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+<script>
+    Vue.component("new-input",{
+        template:`
+        <label>你的名字:<input type="text" @input="changeName" v-model="newName"/></label>
+        `,
+        props:["sth"],
+        data() {
+            return {
+                newName: this.sth
+            }
+        },
+        watch: {
+            sth(v) {
+                this.newName = v
+            }
+        },
+        methods: {
+            changeName() {
+                this.$emit("update:sth", this.newName)
+            }
+        }
+    })
+    new Vue({
+        el:"#box",
+        data: {
+            sth: "nick",
+            name: "zhangsan"
+        }
+    })
+</script>
+<script>
+    const arr = [
+	{ a: new Date(), aa: new RegExp('\\w+'), aaa: function() { console.log('aaa function') } }, 
+	{ b: 'qwe' }, 
+	{ c: [null, undefined] }, 
+	{ d: [{ da: 1, db: { dba: 123 }}] }]
+    console.log(JSON.stringify(arr))
+    const copyArr = JSON.parse(JSON.stringify(arr))
+    console.log(copyArr)
+</script>
+</html>

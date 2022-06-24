@@ -1,0 +1,53 @@
+<!--
+ * @PackageName: 
+ * @Description: 
+ * @Author: Man
+ * @Date: 2022-05-20 13:57:00
+ * @LastModifiedBy: git config user.name
+ * @LastEditTime: 2022-05-21 14:14:41
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #test {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="text" v-model="msg"></input>
+        <p id="test">11111111</p>
+        <p id="test" v-model="msg"></p>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+<script>
+    const data = {
+        msg: "您好"
+    }
+    const input = document.querySelector("input")
+    const p = document.querySelector("p")
+    input.value = data.msg
+    p.innerHTML = data.msg
+    input.addEventListener("input",function(){
+        data.msg = input.value
+    })
+    let temp = data.msg
+    Object.defineProperty(data, "msg", {
+        get(){
+            return temp
+        },
+        set(value){
+            temp = data
+            input.value = temp
+            p.innerHTML = temp
+        }
+    })
+</script>
+</html>

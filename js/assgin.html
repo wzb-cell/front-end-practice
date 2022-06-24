@@ -1,0 +1,36 @@
+<!--
+ * @PackageName: 
+ * @Description: 浅复制
+ * @Author: Man
+ * @Date: 2022-05-26 15:58:13
+ * @LastModifiedBy: git config user.name
+ * @LastEditTime: 2022-05-26 16:06:01
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浅复制</title>
+</head>
+<body>
+    <p>浅复制</p></p>
+</body>
+<script>
+    let dest,src
+    dest = {
+        set b(value){
+            console.log("没有进行数据的操作")
+        }
+    }
+    src  ={
+        get a(){
+            console.log('无效的a getter方法')
+            return 'foo'
+        }
+    }
+    const result = Object.assign(dest, src)
+    console.log(result)
+</script>
+</html>
