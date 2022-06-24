@@ -4,7 +4,7 @@
  * @Author: Man
  * @Date: 2022-06-14 14:08:51
  * @LastModifiedBy: git config user.name
- * @LastEditTime: 2022-06-20 15:54:11
+ * @LastEditTime: 2022-06-24 17:58:09
  */
 // const fs = require("fs");
 // //1.封装一个函数 ：  根据文件名生成  文件读取的promise
@@ -79,6 +79,7 @@ let pp2 = pp.then((res) => {
     })
 })
 console.log(pp2)
+console.log(测试)
 setTimeout(console.log, 1000, pp2);
 // .then((res) => {
 //     console.log(2222222)
