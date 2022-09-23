@@ -4,12 +4,12 @@
  * @Author: Man
  * @Date: 2022-09-01 11:44:27
  * @LastModifiedBy: git config user.name
- * @LastEditTime: 2022-09-03 12:25:53
+ * @LastEditTime: 2022-09-23 15:26:20
  */
 // 输入密码
 function password_input()
 {
-    var password = "992957"
+    var password = "123456"
     for(var i = 0; i < password.length; i++)
     {
         var p = text(password[i].toString()).findOne().bounds();
