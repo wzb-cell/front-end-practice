@@ -1,10 +1,10 @@
-{
-    "configurations": [
-        {
-            "type": "autojs",
-            "request": "launch",
-            "stopOnEntry": true,
-            "name": "[Auto.js Pro8调试]Xiaomi M2102K1AC undefined"
-        }
-    ]
-}
+// {
+//     "configurations": [
+//         {
+//             "type": "autojs",
+//             "request": "launch",
+//             "stopOnEntry": true,
+//             "name": "[Auto.js Pro8调试]Xiaomi M2102K1AC undefined"
+//         }
+//     ]
+// }

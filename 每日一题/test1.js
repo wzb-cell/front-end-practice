@@ -4,7 +4,7 @@
  * @Author: Man
  * @Date: 2022-09-20 17:20:24
  * @LastModifiedBy: git config user.name
- * @LastEditTime: 2022-09-20 19:36:32
+ * @LastEditTime: 2022-10-03 15:57:28
  */
 let arr = [1, 2, 3, 4, 5, 6];
 const shuffle3 = (arr) => { 
@@ -17,3 +17,22 @@ const shuffle3 = (arr) => {
     return arr 
 }
 console.log(shuffle3(arr));
+
+var t = null;
+var replaceThing = function() {
+  var o = t
+  var unused = function() {
+    if (o) {
+      console.log("hi")
+    }
+    console.log(1111)        
+  }
+  unused()
+  t = {
+        longStr: new Array(100000).fill('*'),
+        someMethod: function() {
+                       console.log(1)
+                    }
+      }
+}
+replaceThing()

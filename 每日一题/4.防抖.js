@@ -4,6 +4,8 @@
  * @param {允许抖动的时间} delay 
  * @returns 
  */
+
+// 异步请求防抖，不能通过防抖实现，因为如果对异步进行防抖，请求和结果可能会错乱，导致显示有问题，所以async，await方式进行同步操作，可以使用防抖
 function debounce(fn, delay) {
     // timer 存储定时器
     let timer = null
