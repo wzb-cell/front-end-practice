@@ -1,0 +1,27 @@
+{
+  "name": "vscode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "dependencies": {
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint": "^14.9.1",
+    "stylelint-config-standard": "^26.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wzb-cell/front-end-practice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wzb-cell/front-end-practice/issues"
+  },
+  "homepage": "https://github.com/wzb-cell/front-end-practice#readme"
+}

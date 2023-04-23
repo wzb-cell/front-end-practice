@@ -11,7 +11,7 @@ const { all } = require("micromatch")
 const add = (a, b, c) => a + b + c
 const curring = (fn, ...args) => {
     let allArgs = [...args]
-    console.log(fn)
+    console.log(fn.length)
     // 取函数形参的长度
     let num = fn.length
     const res = (...args2) =>{

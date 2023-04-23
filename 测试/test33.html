@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area {
+            width: 30%;
+            height: auto;
+            word-wrap: break-word;
+            overflow: hidden; 
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .nameInfo {
+            max-width: 50px;
+        }
+        .score {
+            max-width: 20px;
+        }
+        .dataInfo {
+            max-width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div style="height: 500px;background-color: red; overflow: scroll; position: relative;">
+        <div style="height: 1000px; background-color: aqua;  position: absolute; top: 0; left: 0; width: 100%;">
+            <div style="width: 100%; height: 20px; background-color: bisque; display: flex; justify-content: space-between;">
+                <span class="area">重庆市南岸区江南水岸二组团</span>
+                <span class="nameInfo">张三</span>
+                <span class="score">10</span>
+                <span class="dataInfo">2023-04-27</span>
+            </div>
+            <div style="width: 100%; height: 20px; background-color: bisque; display: flex; justify-content: space-between;">
+                <span class="area">重庆市南岸区江南水岸三组团</span>
+                <span class="nameInfo">李四</span>
+                <span class="score">100</span>
+                <span class="dataInfo">2023-04-27</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

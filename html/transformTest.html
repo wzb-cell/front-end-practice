@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+        position: relative;
+        width: 200px;
+        height: 60px;
+        margin: 50px;
+        line-height: 60px;
+        /* background-color: red; */
+        opacity: 0.5;
+        /* perspective: 100px; */
+        text-align: center;
+    }
+    .box:after {
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        background-color: #fb3;
+        transform: perspective(20px) rotatex(5deg);
+        /* -moz-transform: perspective(20px) rotatex(5deg);
+        -ms-transform: perspective(20px) rotatex(5deg);
+        -webkit-transform: perspective(20px) rotatex(5deg); */
+    }  
+    </style>
+</head>
+
+<body>
+    <div class="box">home</div>
+</body>
+</html>

@@ -1,3 +1,4 @@
+import QS from 'qs'
 function ajax(method, url, params, done){
     // 创建xhr对象
     let xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
@@ -33,3 +34,24 @@ ajax('get', "http://localhost:8080/users", {
 },function(a){
     console.log(a)
 })
+export function get(url, params){
+    return new Promise((resolve, reject) => {
+        axios.get(url, {
+            params: params
+        }).then(res => {
+            resolve(res.data);
+        }).catch(err => {
+            reject(err.data);
+        })
+    })
+}
+export function  post(url, params){
+    return new Promise((resolve, reject) => {
+        axios.POST(url, QS.stringify(params))
+        .then(res => {
+            resolve(res.data);
+        }).catch(err => {
+            reject(err.data);
+        })
+    })
+}
