@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "dependencies": {
     "stylelint-config-prettier": "^9.0.3",
     "stylelint": "^14.9.1",
