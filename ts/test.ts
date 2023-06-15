@@ -4,7 +4,7 @@
  * @Author: Man
  * @Date: 2022-06-20 15:23:48
  * @LastModifiedBy: git config user.name
- * @LastEditTime: 2023-04-09 23:02:18
+ * @LastEditTime: 2023-04-24 14:57:24
  */
 const reverse = (s: string): string => s.split('').reverse().join('');
 
@@ -108,100 +108,124 @@ const myname4: Name = {
 // for(let index = 1; index < 10; index++){
 //     console.log(index);
 // }
-interface Vector3 {
-    x: number;
-    y: number;
-    z: number;
-}
-function getComponent(vector: Vector3, axis: 'x' | 'y' | 'z'){
-    return vector[axis]
-}
-const x = 'x'
-let vec = {x: 10, y: 10, z: 10}
-console.log(getComponent(vec, x))
-let  strTest:string = 'sss'
-strTest  = undefined
+// interface Vector3 {
+//     x: number;
+//     y: number;
+//     z: number;
+// }
+// function getComponent(vector: Vector3, axis: 'x' | 'y' | 'z'){
+//     return vector[axis]
+// }
+// const x = 'x'
+// let vec = {x: 10, y: 10, z: 10}
+// console.log(getComponent(vec, x))
+// let  strTest:string = 'sss'
+// strTest  = undefined
 
-interface StringArray {
-    // 字符串索引 -> keyof StringArray => string | number
-    [index: string]: string; 
-  }
-  type Todo = {
-    id: number;
-    text: string;
-    done: boolean;
-  }
+// interface StringArray {
+//     // 字符串索引 -> keyof StringArray => string | number
+//     [index: string]: string; 
+//   }
+//   type Todo = {
+//     id: number;
+//     text: string;
+//     done: boolean;
+//   }
   
-  const todo: Todo = {
-    id: 1,
-    text: "Learn TypeScript keyof",
-    done: false
-  }
+//   const todo: Todo = {
+//     id: 1,
+//     text: "Learn TypeScript keyof",
+//     done: false
+//   }
   
-  function prop<T extends object, K extends keyof T>(obj: T, key: K) {
-    return obj[key];
-  }
+//   function prop<T extends object, K extends keyof T>(obj: T, key: K) {
+//     return obj[key];
+//   }
   
-  const id = prop(todo, "id"); // const id: number
-  const text = prop(todo, "text"); // const text: string
-  const done = prop(todo, "done"); // const done: boolean
-  console.log(id, text, done);
+//   const id = prop(todo, "id"); // const id: number
+//   const text = prop(todo, "text"); // const text: string
+//   const done = prop(todo, "done"); // const done: boolean
+//   console.log(id, text, done);
 
-  type DeepPartial<T> = {
-         // 如果是 object，则递归类型
-        [U in keyof T]?: T[U] extends object
-          ? DeepPartial<T[U]>
-          : T[U]
-    };
+//   type DeepPartial<T> = {
+//          // 如果是 object，则递归类型
+//         [U in keyof T]?: T[U] extends object
+//           ? DeepPartial<T[U]>
+//           : T[U]
+//     };
     
     
-    // type PartialedWindow = DeepPartial<T>; 
-    type DeepPartial2<T> = {
-        [U in keyof T]? : T[U] extends object ? DeepPartial2<T[U]> : T[U] 
-    }
+//     // type PartialedWindow = DeepPartial<T>; 
+//     type DeepPartial2<T> = {
+//         [U in keyof T]? : T[U] extends object ? DeepPartial2<T[U]> : T[U] 
+//     }
     
-    interface UserInfo {
-        id: string;
-        name: string;
-        fruits: {
-            appleNumber: number;
-            orangeNumber: number;
-        }
-    }
-    type UserInfoTest =  DeepPartial<UserInfo>
-    const xiaoming: UserInfoTest = {
-        name: 'xiaoming',
-        fruits: {
-            orangeNumber: 1,
-        }
-    }
-    console.log(xiaoming);
-    type UserInfoTest2 =  DeepPartial<UserInfo>
-    const xiaoming2: UserInfoTest = {
-        name: 'xiaoming',
-        fruits: {
-            orangeNumber: 2,
-        }
-    }
-    console.log(xiaoming2);
+//     interface UserInfo {
+//         id: string;
+//         name: string;
+//         fruits: {
+//             appleNumber: number;
+//             orangeNumber: number;
+//         }
+//     }
+//     type UserInfoTest =  DeepPartial<UserInfo>
+//     const xiaoming: UserInfoTest = {
+//         name: 'xiaoming',
+//         fruits: {
+//             orangeNumber: 1,
+//         }
+//     }
+//     console.log(xiaoming);
+//     type UserInfoTest2 =  DeepPartial<UserInfo>
+//     const xiaoming2: UserInfoTest = {
+//         name: 'xiaoming',
+//         fruits: {
+//             orangeNumber: 2,
+//         }
+//     }
+//     console.log(xiaoming2);
 
-    interface Todo2 {
-        title: string;
-        description: string;
-        completed: boolean;
-      }
+//     interface Todo2 {
+//         title: string;
+//         description: string;
+//         completed: boolean;
+//       }
       
-      type TodoPreview = Pick<Todo2, "title" | "completed" | "completed">;
+//       type TodoPreview = Pick<Todo2, "title" | "completed" | "completed">;
       
-      const todo2: TodoPreview = {
-        title: "Clean room",
-        completed: false,
-      };
+//       const todo2: TodoPreview = {
+//         title: "Clean room",
+//         completed: false,
+//       };
     
-      interface StringArray1 {
-        // 数字索引 -> keyof StringArray1 => number
-        [index: number]: string;
-      }
-      type P = keyof StringArray1
- 
+//       interface StringArray1 {
+//         // 数字索引 -> keyof StringArray1 => number
+//         [index: number]: string;
+//       }
+//       type P = keyof StringArray1
+      type exampleType1 = {
+        name: string
+    }
+    interface exampleInterface1 {
+        name: string
+    }
+    
+    // 会报错，对于同一个属性，其类型必须一致
+    interface exampleInterface2 extends exampleInterface1 {
+        name: string
+    }
+    interface exampleInterface2 extends exampleType1 {
+        name: string
+    }
+    
+    //不会报错，但是number和string进行交叉后，得到的是never，因此name属性的类型会变成never
+    type exampleType2 = exampleInterface1 & {
+        name: string
+    }
+    const test2: exampleType2 = {name: '1'}
+    console.log(typeof test2)
+    // type exampleType2 = exampleType1 & {
+    //     name: number
+    // }
+  
       
