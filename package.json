@@ -8,7 +8,11 @@
     "stylelint": "^14.9.1",
     "stylelint-config-standard": "^26.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/qs": "^6.9.7",
+    "axios": "^1.4.0",
+    "qs": "^6.11.2"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
