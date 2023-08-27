@@ -29,4 +29,4 @@ console.log(flatten([1, 2, 3, [4, [5, 6]]], 2))
 
 // console.log(flatten([4, [5, 6]], 1))
 
-// 测试revert回滚111
+// 测试revert回滚111 222
