@@ -118,22 +118,34 @@ class Promise {
   }
 
   static all(promises) {
+    // 如果当前的promises不是可迭代的数组，需要进行处理
+    if (typeof promises[Symbol.iterator] !== "function") {
+      throw new Error("传入的不是可迭代的数组");
+    }
     let result = [];
     let count = 0;
     return new Promise((resolve, reject) => {
       for (let i = 0; i < promises.length; i++) {
-        promises[i].then(
-          (res) => {
-            result[i] = res;
-            count++;
-            if (count === promises.length) {
-              resolve(result);
+        if (promises[i] instanceof Promise) {
+          promises[i].then(
+            (res) => {
+              result[i] = res;
+              count++;
+              if (count === promises.length) {
+                resolve(result);
+              }
+            },
+            (reason) => {
+              reject(reason);
             }
-          },
-          (reason) => {
-            reject(reason);
+          );
+        } else {
+          result[i] = promises[i];
+          count++;
+          if (count === promises.length) {
+            resolve(result);
           }
-        );
+        }
       }
     });
   }
@@ -179,23 +191,23 @@ class Promise {
 // console.log(p1);
 
 // 支持then方法异步执行
-const p2 = new Promise((resolve, reject) => {
-  resolve("1");
-})
-  .then(
-    (res) => {
-      console.log(res);
-      return "success----2";
-    },
-    (rej) => {
-      console.log(rej);
-    }
-  )
-  .then((res) => {
-    console.log(res);
-  });
-console.log(3);
-console.log(p2);
+// const p2 = new Promise((resolve, reject) => {
+//   resolve("1");
+// })
+//   .then(
+//     (res) => {
+//       console.log(res);
+//       return "success----2";
+//     },
+//     (rej) => {
+//       console.log(rej);
+//     }
+//   )
+//   .then((res) => {
+//     console.log(res);
+//   });
+// console.log(3);
+// console.log(p2);
 
 const pAll1 = new Promise((resolve, reject) => {
   setTimeout(() => {
@@ -210,7 +222,7 @@ const pAll2 = new Promise((resolve, reject) => {
 
 async function asyncFunc() {
   try {
-    const result = await Promise.all([pAll1, pAll2]);
+    const result = await Promise.all(1);
     console.log(result);
   } catch (error) {
     console.log(error);

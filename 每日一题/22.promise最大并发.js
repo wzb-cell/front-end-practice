@@ -16,7 +16,14 @@ function limitConcurrency(tasks, limit) {
         tasks[index]()
           .then((result) => {
             results[index] = result;
-            console.log(result)
+            console.log(result) 
+
+
+
+
+
+
+            
           })
           .catch((error) => {
             results[index] = error;

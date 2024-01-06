@@ -1,0 +1,44 @@
+<style>
+    .container {
+     /* border: 1px solid red; */
+     height: 200px;
+     position: relative;
+   }
+   
+ /*  流体布局,先绘制左右栏 */
+ 
+   .left {
+     /* float: left; */
+     width: 200px;
+     height: 200px;
+     background-color: aqua;
+     position: absolute;
+   }
+   .mid {
+     background-color: cadetblue;
+     /* overflow: hidden; */
+     height: 200px;
+     /* margin-left: 220px;
+     margin-right: 220px; */
+   } 
+  
+   .right { 
+     /* float: right; */
+     position: absolute;
+     right: 0;
+     width: 200px;
+     height: 200px;
+     background-color: aquamarine;
+   }
+
+ 
+ </style>
+ <body>
+   <div class="container">
+    <div class="mid">mid</div>
+    <div class="left">left</div>
+
+    <div class="right">right</div>
+   </div>
+ </body>
+ 
