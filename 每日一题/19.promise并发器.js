@@ -15,6 +15,18 @@ class Scheduler {
         }
         this.queue.push(request)
     }
+    addTask2(url) {
+        const request = () => {
+            return new Promise((resolve, reject)=> {
+                fetch(url).then((res) => {
+                    resolve(res);
+                }).catch((error) => {
+                    console.log(error)
+                })
+            })
+
+        }
+    }
 
     taskStarter() {
         for(let i = 0; i < this.queue.length; i++) {
@@ -31,6 +43,8 @@ class Scheduler {
             this.count --
             this.request()
         })
+        // 如果是URL的情況
+        // this.queue.shift()().then(res =>)
     }
 }
 const test = new Scheduler(2)

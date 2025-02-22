@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 1400px;
+            height: 340px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+ 
+        .list {
+            display: flex;
+            /* flex-wrap: wrap; */
+            /* transition: all 0.3s linear; */
+ 
+        }
+        .list div{
+            display: flex;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+ 
+<body>
+    <div class="box">
+        <div class="list">
+            <div  style="width: 1400px; height: 340px;background-color: yellow;"></div>
+            <div  style="width: 1400px; height: 340px;background-color: black;"></div>
+            <div  style="width: 1400px; height: 340px;background-color: bisque;"></div>
+            <div  style="width: 1400px; height: 340px;background-color: green;"></div>
+            <div  style="width: 1400px; height: 340px;background-color: blue"></div>
+            <div  style="width: 1400px; height: 340px;background-color: yellow;"></div>
+            <!-- <img src="" alt="" style="width: 1400px; height: 340px;background-color: black;">
+            <img src="" alt="" style="width: 1400px; height: 340px;background-color: bisque;">
+            <img src="" alt="" style="width: 1400px; height: 340px;background-color: blue;">
+            <img src="" alt="" style="width: 1400px; height: 340px;background-color: green;">
+            <img src="" alt="" style="width: 1400px; height: 340px;background-color: yellow;"> -->
+        </div>
+    </div>
+ 
+    <script>
+        var list = document.querySelector('.list')
+        var x = 0
+ 
+        setInterval(function () {
+            x++
+            list.style.marginLeft = -1400 * x + 'px'
+            list.style.transition = 'all 1s linear'
+ 
+       //轮播图跳到最后一张时，需要判断，使最后一张如何跳到第一张无感
+            if (x == 5) {
+                setTimeout(function () {
+                   
+                    x = 0    //跳到第一张
+                    list.style.marginLeft = 0 //跳到第一张就使margLeft为0
+                    list.style.transition = 'none'//此时过渡需清除
+                }, 1000)//最后一张跳到第一张有1秒过渡，就是说有一秒的时间去解决问题，
+                    //    然而setTimeout同时在最后一张跳到第一张时也在执行，
+                    //    设置一秒延迟,正好和轮播图跳到最后一张时间点对上。
+                    //   （可以把setTimeout理解为异步，在主线程执行时，他也在执行）
+            }
+ 
+        }, 2000)
+ 
+ 
+    </script>
+</body>
+ 
+</html>

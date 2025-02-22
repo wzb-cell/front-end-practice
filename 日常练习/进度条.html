@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      id="test"
+      style="width: 0px; height: 12px; line-height: 12px; background-color: red"
+    >
+      0%
+    </div>
+  </body>
+  <script>
+    test.onclick = () => {
+      //   var test = document.getElementById("test");
+      var timer = setInterval(function () {
+        var width = test.offsetWidth;
+        width += 3;
+        test.style.width = width + "px";
+        test.innerHTML = parseInt(width / 3) + "%";
+        if (width >= 300) {
+          clearInterval(timer);
+        }
+      }, 10);
+    };
+  </script>
+</html>
