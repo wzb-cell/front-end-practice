@@ -1,14 +1,8 @@
 "use strict";
-function removeDuplicates(nums) {
-    let left = 0;
-    let tempCache = new Set();
-    for (let right = 0; right < nums.length; right++) {
-        if (!tempCache.has(nums[right])) {
-            tempCache.add(nums[right]);
-            left++;
-        }
-    }
-    return left;
-}
-console.log(removeDuplicates([1, 1, 2]));
+let accountCode = '123';
+let test = 2;
+// let castedAccountCode = accountCode as number;
+let temp = accountCode.length;
+const u1 = {};
+console.log(u1.name); // 这里就会有提示
 //# sourceMappingURL=test2.js.map

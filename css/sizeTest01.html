@@ -8,40 +8,46 @@
 -->
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <script type="text/javascript">
-        function _comma(number) {
-            // 补全代码
-            let negative = '';
-            if (number < 0) {
-                negative = '-';
-                number = Math.abs(number);
-            }
-            let array = parseInt(number).toString().split("").reverse();
-            let sign = 0;
-            let comArray1 = [];
-            for (let i = 0; i < array.length; i++) {
-                if (sign === 3) {
-                    comArray1.push(",");
-                    sign = 0;
+    <head>
+        <meta charset="UTF-8" />
+        <title>Title</title>
+        <script type="text/javascript">
+            function _comma(number) {
+                // 补全代码
+                let negative = "";
+                if (number < 0) {
+                    negative = "-";
+                    number = Math.abs(number);
                 }
-                comArray1.push(array[i]);
-                sign++;
+                let array = parseInt(number).toString().split("").reverse();
+                let sign = 0;
+                let comArray1 = [];
+                for (let i = 0; i < array.length; i++) {
+                    if (sign === 3) {
+                        comArray1.push(",");
+                        sign = 0;
+                    }
+                    comArray1.push(array[i]);
+                    sign++;
+                }
+                return negative + comArray1.reverse().join("");
             }
-            return negative + comArray1.reverse().join('');      
-        }
-        console.log(_comma(1234567))
-    </script>
-</head>
+            console.log(_comma(1234567));
+        </script>
+    </head>
 
-<body>
-    <div style="font-size: 15px">
-        你好，css 世界
-        <p style="font-size: 2em;width: 2em;background-color: antiquewhite;">em是相对长度单位</p>
-    </div>
-</body>
-
+    <body>
+        <div style="font-size: 15px">
+            你好，css 世界
+            <p
+                style="
+                    font-size: 2em;
+                    width: 2em;
+                    background-color: antiquewhite;
+                "
+            >
+                em是相对长度单位
+            </p>
+        </div>
+    </body>
 </html>
