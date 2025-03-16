@@ -69,3 +69,52 @@ function maxProfit(prices: number[]): number {
     }
     return profitSum;
 }
+
+function canJump(nums: number[]): boolean {
+    if (nums.length === 1) return true;
+    let tempMaxIndex = nums[0];
+    for (let i = 0; i < nums.length - 1; i++) {
+        // 如果跳转的最大长度小于遍历下标，则证明不能走到这里，退出
+        if (tempMaxIndex < i) {
+            return false;
+        }
+        // 如果最大长度大于之前的长度就立即更新
+        if (i + nums[i] > tempMaxIndex) {
+            tempMaxIndex = i + nums[i];
+        }
+
+        if (i + nums[i] >= nums.length - 1) {
+            return true;
+        }
+    }
+    return false;
+}
+
+console.log(canJump([1, 0, 1, 0]));
+
+function intToRoman(num: number): string {
+    const numberToRomanMap: [number, string][] = [
+        [1000, "M"],
+        [900, "CM"],
+        [500, "D"],
+        [400, "CD"],
+        [100, "C"],
+        [90, "XC"],
+        [50, "L"],
+        [40, "XL"],
+        [10, "X"],
+        [9, "IX"],
+        [5, "V"],
+        [4, "IV"],
+        [1, "I"],
+    ];
+    let result = "";
+    for(let i = 0; i < numberToRomanMap.length; i++){
+        const count = Math.floor(num/numberToRomanMap[i][0]);
+        if(count){
+            num = num % numberToRomanMap[i][0];
+            result += numberToRomanMap[i][1].repeat(count);
+        }
+    }
+    return result;
+};
